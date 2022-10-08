@@ -1,3 +1,14 @@
+"""
+Test runtime complexity for different python sorting algorithm
+
+sorting algorithm included:
+- insertion sort
+- merge sort
+- quick sort
+- bubble sort
+- timsort (combination of insertion & merge sort)
+"""
+
 from random import randint
 from timeit import repeat
 
@@ -11,12 +22,10 @@ def run_sorting_algorithm(algorithm, array):
 
     stmt = f"{algorithm}({array})"
 
-    # Execute the code ten different times and return the time
-    # in seconds that each execution took
+    # Execute the code ten different times and return the time in seconds
     times = repeat(setup=setup_code, stmt=stmt, repeat=3, number=10)
 
-    # Finally, display the name of the algorithm and the
-    # minimum time it took to run
+    # Display the name of the algorithm and minimum time to run
     print(f"Algorithm: {algorithm}. Minimum execution time: {min(times)}")
     
 
@@ -24,8 +33,7 @@ def bubble_sort(array):
     n = len(array)
 
     for i in range(n):
-        # Create a flag that will allow the function to
-        # terminate early if there's nothing left to sort
+        # Create a flag that will allow the function to terminate early if there's nothing left to sort
         already_sorted = True
 
         # Start looking at each item of the list one by one,
